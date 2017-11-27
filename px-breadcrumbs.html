@@ -32,6 +32,22 @@ It also provides a quick way to navigate backwards within a path or within a spe
 <dom-module id="px-breadcrumbs">
   <template>
     <style include="px-breadcrumbs-styles"></style>
+    <style>
+      .custom-icon {
+        --iron-icon-width: 22px;
+        --iron-icon-height: 22px;
+        margin-right: 0.5em;
+      }
+      .icon32 {
+        stroke-width: 1.25;
+      }
+      .icon22 {
+        stroke-width: 1;
+      }
+      .icon16 {
+        stroke-width: 0.75;
+      }
+    </style>
     <div class="container flex">
       <ul class="topPath">
         <template is="dom-repeat" items="[[_mainPathItems]]">
@@ -42,12 +58,15 @@ It also provides a quick way to navigate backwards within a path or within a spe
           </template>
           <li data-text="[[item.label]]" data-item="[[item]]" data-index="[[index]]" class="breadcrumbTopItem u-ph- flex flex--row flex--middle" on-tap="_onPathTap">
             <template is="dom-if" if="[[_isLabel(item, clickOnlyMode)]]">
+              <px-icon class$="custom-icon [[computeIconClass(item.breadcrumbIcon)]]" icon="[[item.breadcrumbIcon]]"></px-icon>
               <span class="actionable actionable--action">[[item.label]]</span>
             </template>
             <template is="dom-if" if="[[_isDropdown(item, clickOnlyMode)]]">
+              <px-icon class$="custom-icon [[computeIconClass(item.breadcrumbIcon)]]" icon="[[item.breadcrumbIcon]]"></px-icon>
               <px-dropdown display-value="[[item.label]]" items="[[_clickedItemChildren]]" search-mode="[[searchMode]]" button-style="bare" disable-clear></px-dropdown>
             </template>
             <template is="dom-if" if="[[_isOverflow(item)]]">
+              <px-icon class$="custom-icon [[computeIconClass(item.breadcrumbIcon)]]" icon="[[item.breadcrumbIcon]]"></px-icon>
               <px-dropdown id="dropdown" items="[[_clickedItemChildren]]" button-style="icon" icon="px-nav:more"></px-dropdown>
             </template>
           </li>

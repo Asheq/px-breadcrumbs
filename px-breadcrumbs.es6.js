@@ -535,6 +535,15 @@
      */
     _getSeparatorSize(clickOnlyMode) {
       return this.clickOnlyMode ? 'small' : 'large';
+    },
+    computeIconClass(iconName) {
+      if (iconName.includes('px-doc') || iconName.includes('px-utl')) {
+        return 'icon16';
+      } else if (iconName.includes('px-nav') || iconName.includes('px-vis')) {
+        return 'icon22';
+      } else {
+        return 'icon32';
+      }
     }
   });
 
