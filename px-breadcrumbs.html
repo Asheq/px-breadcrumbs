@@ -37,13 +37,13 @@ It also provides a quick way to navigate backwards within a path or within a spe
         margin-right: 0.5em;
       }
       .icon32 {
-        stroke-width: 1.25;
+        stroke-width: 1.45;
       }
       .icon22 {
         stroke-width: 1;
       }
       .icon16 {
-        stroke-width: 0.75;
+        stroke-width: 0.73;
       }
     </style>
     <div class="container flex">
@@ -640,7 +640,15 @@ It also provides a quick way to navigate backwards within a path or within a spe
      */
     _getSeparatorSize(clickOnlyMode) {
       return this.clickOnlyMode ? 'small' : 'large';
-    }
+    },
+    computeIconClass(iconName) {
+      if (iconName.includes('px-doc') || iconName.includes('px-utl')) {
+        return 'icon16';
+      } else if (iconName.includes('px-nav') || iconName.includes('px-vis')) {
+        return 'icon22';
+      } else {
+        return 'icon32';
+      }
   });
 })();
 </script>
