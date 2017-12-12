@@ -1,3 +1,12 @@
+v1.1.1
+==================
+* Add support for custom keys
+* Small refactor to remove dist/es6.js files
+
+v1.1.0
+==================
+* Polymer 1.x/2.x hybrid support
+
 v1.0.9
 ==================
 * Moves class declaration above usage (#13/#14)
